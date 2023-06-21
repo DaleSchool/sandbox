@@ -9,6 +9,11 @@ jobs:
         with:
           name: hello
           path: hello.txt
+      - uses: actions/download-artifact@v3
+        id: download-artifact
+        with:
+          name: hello
+      - run: echo ${{ steps.download-artifact.outputs.artifact_url }}
   comment:
     runs-on: ubuntu-latest
     steps:
