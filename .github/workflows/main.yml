@@ -1,0 +1,19 @@
+name: Our Workflow
+on: pull_request
+permissions:
+  issues: write
+jobs:
+  up:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, GitHub Actions!" > hello.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: hello
+          path: hello.txt
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh pr comment ${{ github.event.number }} --body "Thanks for creating this PR!"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
