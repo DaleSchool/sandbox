@@ -2,6 +2,7 @@ name: Our Workflow
 on: pull_request
 permissions:
   contents: write
+  pull-requests: write
 jobs:
   up:
     runs-on: ubuntu-latest
