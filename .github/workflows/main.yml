@@ -10,10 +10,10 @@ jobs:
           name: hello
           path: hello.txt
       - uses: actions/download-artifact@v3
-        id: download-artifact
+        id: download
         with:
           name: hello
-      - run: echo ${{ steps.download-artifact.outputs.artifact_url }}
+      - run: echo ${{ steps.download.outputs.download-path }}
   comment:
     runs-on: ubuntu-latest
     steps:
